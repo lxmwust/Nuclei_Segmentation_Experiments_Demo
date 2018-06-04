@@ -36,3 +36,6 @@ images with a total of 2754 cells [link](https://peterjacknaylor.github.io/)
 * step_6: using the networks to segment the testing images
 * step_7: evaluating the segmentation results 
 * step_8: arranging the evaluation data as a table
+
+## Contact information  
+* E-mail: xlpflyinsky@foxmail.com
