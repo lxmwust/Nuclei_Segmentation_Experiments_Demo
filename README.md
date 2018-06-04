@@ -27,6 +27,9 @@ images with a total of 2754 cells [link](https://peterjacknaylor.github.io/)
 * Numpy
 * Scipy
 
+## Pre-trained model
+will be provided soon!
+
 ## How to use it  
 * step_1: randomly extracting the image patches from original images 
 * step_2: randomly divide the image patches as training and validation data
