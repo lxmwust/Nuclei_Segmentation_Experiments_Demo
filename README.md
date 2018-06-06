@@ -9,9 +9,13 @@ Overlapping nuclei segmentation using Deep Interval-Masker-Aware Networks and Ma
 ## Overview
 We present a novel and efficient computing framework for segmenting the overlapping nuclei by combining Marker-controlled Watershed with our proposed convolutional neural network (DIMAN). 
 We implemented our method based on the open-source machine learning framework TensorFlow  and reinforcement learning library TensorLayer.This repository contains all code used in our experiments, incuding the data preparation, model construction, model training and
-result evaluation. 
+result evaluation. For comparison with our
+method, we also utilized TensorFlow and TensorLayer to
+reimplement four known semantic segmentation convolutional
+neural networks: FCN8s, U-Net, HED and
+SharpMask,
 
-## dataset
+## Dataset
 We conducted the experiments on two public H&E stained histopathology image datasets: MICCAI2017 and BNS.  
 
 * MICCAI2017:  includes totally 32 annotated image tiles [link](http://miccai.cloudapp.net/competitions/)
