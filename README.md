@@ -31,15 +31,15 @@ images with a total of 2754 cells [Link](https://peterjacknaylor.github.io/)
 will be provided soon!
 
 ## Composition of code
-* ./
-** step_1: randomly extracting the image patches from original images 
-** step_2: randomly divide the image patches as training and validation data
-** step_3: producing the pixel-wise weight map for solving the class-imbalance problem
-** step_4: transforming the image patches into tfrecord file
-** step_5: training multiple networks with same hyper-parameters
-** step_6: using the networks to segment the testing images
-** step_7: evaluating the segmentation results 
-** step_8: arranging the evaluation data as a table
+1. main
+* step_1: randomly extracting the image patches from original images 
+* step_2: randomly divide the image patches as training and validation data
+* step_3: producing the pixel-wise weight map for solving the class-imbalance problem
+* step_4: transforming the image patches into tfrecord file
+* step_5: training multiple networks with same hyper-parameters
+* step_6: using the networks to segment the testing images
+* step_7: evaluating the segmentation results 
+* step_8: arranging the evaluation data as a table
 
 ## Contact information  
 * E-mail: xlpflyinsky@foxmail.com
