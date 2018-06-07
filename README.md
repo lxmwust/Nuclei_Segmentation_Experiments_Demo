@@ -46,7 +46,7 @@ based watershed)
 * Testing: if you just want to validate the segmentation performance of pre-trained models, follow these steps:
    1. Download our code on your computer, assume the path is "./";
    2. Download the dataset file [Link](https://drive.google.com/open?id=1-11wp70IAc-Ba-oI89qhtCa_VOXZ93Ls) and unzip this file into the path './dataset/'
-   3. Download the dataset file [Link](https://drive.google.com/open?id=1EZVsQW7PCQ8qhaTq0Eyo6Hv3RYbdz8_t) and unzip this file into the path './checkpoints/'
+   3. Download the pre-trained parameters of model [Link](https://drive.google.com/open?id=1EZVsQW7PCQ8qhaTq0Eyo6Hv3RYbdz8_t) and unzip this file into the path './checkpoints/'
    4. run the code 'step6_inference_multiplenetwork.py' for segmenting the testing images and 'step7_result_evaluation.m' for evaluating the performance of method
 
 ## Contact information  
