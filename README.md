@@ -26,10 +26,6 @@ We conducted the experiments on two public H&E stained histopathology image data
 * BNS: contains 33 manually annotated H&E stained histopathology
 images with a total of 2754 cells [Link](https://peterjacknaylor.github.io/)  
 
-
-## Pre-trained model
-will be provided soon!
-
 ## Composition of code
 1. the main steps for data preparation, model training and result evaluation:
     * step_1: randomly extracting the image patches from original images 
@@ -42,15 +38,16 @@ will be provided soon!
     * step_8: arranging the evaluation data as a table
 2. ./tools: image patches, masker and interval extraction 
 3. ./nets: model construction
-4. ./utils: producing tfrecord file and image post-processing (classical watershed, condition erosion based watershed [27], dynamics
+4. ./utils: producing tfrecord file and image post-processing (classical watershed, condition erosion based watershed, dynamics
 based watershed)
 5. ./Evaluation Metrics: evaluation methods
 
 ## Quick Start
 * Testing: if you just want to validate the segmentation performance of pre-trained models, follow these steps:
    1. Download our code on your computer, assume the path is "./";
-   2. Download the dataset file [Link](https://drive.google.com/open?id=1-11wp70IAc-Ba-oI89qhtCa_VOXZ93Ls) and unzip this file into the
-* Traing your own model:  
+   2. Download the dataset file [Link](https://drive.google.com/open?id=1-11wp70IAc-Ba-oI89qhtCa_VOXZ93Ls) and unzip this file into the path './dataset/'
+   3. Download the dataset file [Link](https://drive.google.com/open?id=1EZVsQW7PCQ8qhaTq0Eyo6Hv3RYbdz8_t) and unzip this file into the path './checkpoints/'
+   4. run the code 'step6_inference_multiplenetwork.py' for segmenting the testing images and 'step7_result_evaluation.m' for evaluating the performance of method
 
 ## Contact information  
 * E-mail: xlpflyinsky@foxmail.com
