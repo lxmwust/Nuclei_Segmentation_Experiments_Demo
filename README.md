@@ -12,6 +12,7 @@ We implemented our method based on the open-source machine learning framework Te
 result evaluation. For comparison with our method, we also utilized TensorFlow and TensorLayer to reimplement four known semantic segmentation convolutional neural networks: FCN8s, U-Net, HED and SharpMask.
 
 ## Dependencies  
+* Matlab
 * Python 3.x
 * TensorFlow 1.x
 * TensorLayer 1.5.4
@@ -21,17 +22,16 @@ result evaluation. For comparison with our method, we also utilized TensorFlow a
 
 ## Dataset
 We conducted the experiments on two public H&E stained histopathology image datasets: MICCAI2017 and BNS.  
-
 * MICCAI2017:  includes totally 32 annotated image tiles [Link](http://miccai.cloudapp.net/competitions/)
 * BNS: contains 33 manually annotated H&E stained histopathology
 images with a total of 2754 cells [Link](https://peterjacknaylor.github.io/)  
-* We have shared the two datasets by Google Drive [Link](https://drive.google.com/open?id=1-11wp70IAc-Ba-oI89qhtCa_VOXZ93Ls)
+
 
 ## Pre-trained model
 will be provided soon!
 
 ## Composition of code
-1. main
+1. the main steps for data preparation, model training and result evaluation:
     * step_1: randomly extracting the image patches from original images 
     * step_2: randomly divide the image patches as training and validation data
     * step_3: producing the pixel-wise weight map for solving the class-imbalance problem
@@ -40,6 +40,17 @@ will be provided soon!
     * step_6: using the networks to segment the testing images
     * step_7: evaluating the segmentation results 
     * step_8: arranging the evaluation data as a table
+2. ./tools: image patches, masker and interval extraction 
+3. ./nets: model construction
+4. ./utils: producing tfrecord file and image post-processing (classical watershed, condition erosion based watershed [27], dynamics
+based watershed)
+5. ./Evaluation Metrics: evaluation methods
+
+## Quick Start
+* Testing: if you just want to validate the segmentation performance of pre-trained models, follow these steps:
+   1. Download our code on your computer, assume the path is "./";
+   2. Download the dataset file [Link](https://drive.google.com/open?id=1-11wp70IAc-Ba-oI89qhtCa_VOXZ93Ls) and unzip this file into the
+* Traing your own model:  
 
 ## Contact information  
 * E-mail: xlpflyinsky@foxmail.com
