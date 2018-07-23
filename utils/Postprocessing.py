@@ -2,10 +2,15 @@
 import pdb
 from skimage.morphology import watershed
 import numpy as np
-from skimage.measure import label
 from skimage.morphology import reconstruction, dilation, erosion, disk, diamond, square
 from skimage import img_as_ubyte
 from skimage.color import label2rgb
+from skimage.morphology import remove_small_objects
+from scipy import ndimage as ndi
+from skimage.morphology import label
+from skimage.feature import peak_local_max
+
+import skimage.morphology as morphology
 
 def PrepareProb(img, convertuint8=True, inverse=True):
     if convertuint8:
@@ -98,3 +103,52 @@ def Watershed_Dynamic(prob_image, param=7, thresh = 0.5):
     segmentation_mask = DynamicWatershedAlias(prob_image, param, thresh)
     segmentation_rgb = label2rgb(segmentation_mask,bg_label = 0, bg_color=(0.2, 0.5, 0.6))
     return segmentation_mask,segmentation_rgb
+    
+    
+    
+def Watershed_Proposed(mask,maskers):
+     maskers = maskers & mask
+     maskers = label(maskers)
+     distance = ndi.distance_transform_edt(mask)
+     labels = watershed(-distance, markers=maskers, mask=mask)
+     labels = remove_small_objects(labels, 100)
+     labelsrgb = label2rgb(labels,bg_label = 0, bg_color=(0.2, 0.5, 0.6))
+     return labels, labelsrgb
+
+def Watershed_Classical(mask):
+    distance = ndi.distance_transform_edt(mask)
+    local_maxi = peak_local_max(distance, indices=False,footprint=np.ones((2, 2)), 
+                            labels=mask)
+    markers = ndi.label(local_maxi)[0]
+    labels = watershed(-distance, markers, mask=mask)
+    labels = remove_small_objects(labels, 100)
+    labelsrgb = label2rgb(labels,bg_label = 0, bg_color=(0.2, 0.5, 0.6))
+    return labels, labelsrgb
+
+def condition_erosion(mask,erosion_structure,threshold):
+    mask_process = np.zeros(np.shape(mask))
+    mask_label,N = label(mask,return_num=True)
+    for i in range(1,N+1):
+        mask_temp = (mask_label==i)
+        while np.sum(mask_temp)>=threshold:
+            mask_temp = erosion(mask_temp,erosion_structure)
+        mask_process = mask_process + mask_temp
+    return mask_process
+        
+def Watershed_Condition_erosion(mask):
+    fine_structure = morphology.diamond(1)
+    coarse_structure = morphology.diamond(3)
+    coarse_structure[3,0]=0
+    coarse_structure[3,6]=0
+
+    #==========step1 coarse erosion=============
+    seed_mask = condition_erosion(mask,coarse_structure,200)
+    #==========step2 fine erosion=============
+    seed_mask = condition_erosion(seed_mask,fine_structure,50)
+    
+    distance = ndi.distance_transform_edt(mask)
+    markers = label(seed_mask)
+    labels = watershed(-distance, markers, mask=mask)
+    labelsrgb = label2rgb(labels,bg_label = 0, bg_color=(0.2, 0.5, 0.6))
+#    markersrgb = label2rgb(markers,bg_label = 0, bg_color=(0.2, 0.5, 0.6))
+    return labels, labelsrgb
