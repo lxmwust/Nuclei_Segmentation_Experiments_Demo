@@ -45,7 +45,7 @@ coord = tf.train.Coordinator() #stop thread
 with tf.Session() as sess:
     sess.run(init)
     threads = tf.train.start_queue_runners(sess=sess,coord=coord)
-    for i in range(39):
+    for i in range(20):
         val, l, fw, im, iw, mm, mw= sess.run([img_batch, label_batch, foreground_weight_batch, inter_mask_batch, inter_weight_batch, masker_mask_batch, masker_weight_batch])
     
         #l = to_categorical(l, 12) 

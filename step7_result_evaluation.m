@@ -4,7 +4,7 @@ clear all;
 addpath './Evaluation Metrics'
 addpath './tools'
 %% ======================Set parameters==================== 
-DatasetName ='BNS'; %BNS or MICCAI2017
+DatasetName ='MICCAI2017'; %BNS or MICCAI2017
 NetworkList = {'FCN8s','HED','Unet','SharpMask','DIMAN'};% 'FCN8s','HED','Unet','SharpMask','DIMAN'
 %===================================================
 switch DatasetName

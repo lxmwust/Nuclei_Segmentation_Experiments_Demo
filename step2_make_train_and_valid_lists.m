@@ -9,7 +9,7 @@ clc;
 clear;
 close all;
 %% ===============setp1: set parameters==============
-DatasetName ='BNS'; %BNS or MICCAI2017
+DatasetName ='MICCAI2017'; %BNS or MICCAI2017
 datapath = ['./data/' DatasetName '/'];
 num_DB = 1; %number of databases
 patchfolder = 'patches'; %fold name of samples 

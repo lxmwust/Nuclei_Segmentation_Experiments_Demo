@@ -10,7 +10,7 @@ clc;
 
 addpath ./tools
 %% ===============setp1: set parameters==============
-DatasetName ='BNS'; %BNS or MICCAI2017
+DatasetName ='MICCAI2017'; %BNS or MICCAI2017
 switch DatasetName
         case 'MICCAI2017'    
             datapath_images = './dataset/MICCAI2017/Nuclei_segmentation_training/';
@@ -30,7 +30,7 @@ num_DB = 1; %number of databases
 patchfolder = 'patches'; %fold name of samples 
 
 %----------------images augmentation parameters------------------
-para_imgaug.maxnum = 1;
+para_imgaug.maxnum = 20;
 para_imgaug.cropsize = 224; %size of the pathces
 para_imgaug.random_fliplr = true;
 para_imgaug.random_flipup = true;
