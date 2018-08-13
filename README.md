@@ -6,6 +6,9 @@ Overlapping nuclei segmentation using Deep Interval-Masker-Aware Networks and Ma
 * Left image: the H&E stained histopathology images  
 * Right image: the nuclei segmentation result using our method, in which the adjacent nuclei are labeled with different colors.
 
+Nuclei Segmentation in_WSI
+![Nuclei_Segmentation_in_WSI](https://github.com/appiek/Nuclei_Segmentation_Experiments_Demo/blob/master/Nuclei_Segmentation_in_WSI_Demo.gif?raw=true)
+
 ## Overview
 We present a novel and efficient computing framework for segmenting the overlapping nuclei by combining Marker-controlled Watershed with our proposed convolutional neural network (DIMAN). 
 We implemented our method based on the open-source machine learning framework TensorFlow  and reinforcement learning library TensorLayer.This repository contains all code used in our experiments, incuding the data preparation, model construction, model training and
