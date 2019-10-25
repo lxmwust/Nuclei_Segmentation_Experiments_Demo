@@ -57,9 +57,9 @@ based watershed)
 
 ## Please cite our paper as below:
 @article{xie2019integrating,
-  title={Integrating deep convolutional neural networks with marker-controlled watershed for overlapping nuclei segmentation in   histopathology images}, 
-  author={Xie, Lipeng and Qi, Jin and Pan, Lili and Wali, Samad}, 
-  journal={Neurocomputing}, 
-  year={2019}, 
-  publisher={Elsevier} 
+  title={Integrating deep convolutional neural networks with marker-controlled watershed for overlapping nuclei segmentation in   histopathology images},   
+  author={Xie, Lipeng and Qi, Jin and Pan, Lili and Wali, Samad},   
+  journal={Neurocomputing},   
+  year={2019},   
+  publisher={Elsevier}   
 }
